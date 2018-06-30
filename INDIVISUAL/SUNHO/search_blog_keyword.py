@@ -12,7 +12,7 @@ import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import redis
-
+#
 sem = threading.Semaphore(32)
 
 # 네이버 api 요청에 필요한 key값들
