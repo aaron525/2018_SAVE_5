@@ -68,8 +68,8 @@ const postItem = function(req, res) {
 
 router.all('/', function(req, res, next) {
   // for cors
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "X-Requested-With")
+  // res.header("Access-Control-Allow-Origin", "*")
+  // res.header("Access-Control-Allow-Headers", "X-Requested-With")
   next()
 })
 .get('/list', getList)
