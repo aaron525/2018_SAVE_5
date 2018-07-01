@@ -43,14 +43,14 @@ def MinMaxScaler(data):
 
 # train Parameters
 seq_length = 7
-data_dim = 5
+data_dim = 4
 hidden_dim = 10
 output_dim = 1
 learning_rate = 0.01
 iterations = 500
 
-# Open, High, Low, Volume, Close
-xy = np.loadtxt('Google_Stock_Price_Train.csv', delimiter=',')
+# Open, Low, Volume, High
+xy = np.loadtxt('Google_Stock_Price_(Train+Test).csv', delimiter=',')
 xy = xy[::-1]  # reverse order (chronically ordered)
 xy = MinMaxScaler(xy)
 x = xy
