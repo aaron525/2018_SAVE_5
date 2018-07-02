@@ -14,7 +14,7 @@ const apiList = function () {
       _data = data;
     })
     .catch(function (err) {
-      console.log('catch', err);
+      console.log('REST API Error', err);
     });
   return _data
 }
@@ -32,7 +32,7 @@ const apiItem = function (_qs) {
       _data = data;
     })
     .catch(function (err) {
-      console.log('catch', err);
+      console.log('REST API Error', err);
     });
   return _data
 }
