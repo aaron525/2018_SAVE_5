@@ -9,11 +9,11 @@ const Link = ({ active, children, onClick }) => {
   return (
     // eslint-disable-next-line
     <button type="button"
-       className="btn btn-block btn-lg btn-outline-secondary"
-       onClick={e => {
-         e.preventDefault()
-         onClick()
-       }}
+      className="btn btn-block btn-lg btn-outline-secondary"
+      onClick={e => {
+        e.preventDefault()
+        onClick()
+      }}
     >
       {children}
     </button>
