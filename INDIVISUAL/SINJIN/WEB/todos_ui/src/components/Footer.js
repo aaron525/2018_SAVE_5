@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="row">
       <div className="col-xs">
         <FilterLink filter="SHOW_ALL">
-          Show All
+          All
         </FilterLink>
       </div>
       <div className="col-xs">
