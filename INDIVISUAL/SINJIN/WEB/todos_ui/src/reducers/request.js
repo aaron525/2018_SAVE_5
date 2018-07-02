@@ -1,6 +1,6 @@
 import rp from 'request-promise'
 
-const BASE_URL = 'http://localhost:3000/api'
+export const BASE_URL = 'http://localhost:3000/api'
 
 const apiList = function () {
   let data = {}

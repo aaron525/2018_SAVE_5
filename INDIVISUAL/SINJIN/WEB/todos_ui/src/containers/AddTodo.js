@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import rp from 'request-promise'
 import { addTodo, apiItem } from '../actions'
-
+import { BASE_URL } from '../reducers/request'
 
 let AddTodo = ({ dispatch }) => {
   let input
 
   const options = {
-    url : "http://localhost:3000/api/list",
+    url : BASE_URL + "/list",
     json: true,
     method: 'GET'
   }
