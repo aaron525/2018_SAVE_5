@@ -8,32 +8,32 @@ let AddTodo = ({ dispatch }) => {
   let input
 
   const options = {
-    url : BASE_URL + "/list",
+    url: BASE_URL + "/list",
     json: true,
     method: 'GET'
   }
   rp(options)
     .then(function (data) {
-      for(var key in data){
+      for (var key in data) {
         dispatch(addTodo(data[key].text), key)
       }
     })
     .catch(function (err) {
-      console.log('catch',err);
+      console.log('catch', err);
     });
 
   return (
     <form className="container"
       onSubmit={e => {
-      e.preventDefault()
-      if (!input.value.trim()) {
-        return
-      }
-      dispatch(addTodo(input.value,""))
-      dispatch(apiItem({"text":input.value,"completed":false,"id":""}))
+        e.preventDefault()
+        if (!input.value.trim()) {
+          return
+        }
+        dispatch(addTodo(input.value, ""))
+        dispatch(apiItem({ "text": input.value, "completed": false, "id": "" }))
 
-      input.value = ''
-    }}>
+        input.value = ''
+      }}>
       <div className="row">
         <div className="input-group input-group-lg">
           <input ref={node => {
