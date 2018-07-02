@@ -1,9 +1,11 @@
 import rp from 'request-promise'
 
+const BASE_URL = 'http://localhost:3000'
+
 const apiList = function () {
   let _data = {}
   const options = {
-    url: "http://localhost:3000/api/list",
+    url: BASE_URL + "/api/list",
     json: true,
     method: 'GET'
   }
@@ -20,7 +22,7 @@ const apiList = function () {
 const apiItem = function (_qs) {
   let _data = {}
   const options = {
-    url: "http://localhost:3000/api/item",
+    url: BASE_URL + "/api/item",
     json: true,
     method: 'POST',
     body: { "body": _qs["obj"] }
