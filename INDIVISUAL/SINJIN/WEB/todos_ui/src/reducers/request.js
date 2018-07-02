@@ -3,20 +3,20 @@ import rp from 'request-promise'
 const BASE_URL = 'http://localhost:3000/api'
 
 const apiList = function () {
-  let _data = {}
+  let data = {}
   const options = {
     url: BASE_URL + "/list",
     json: true,
     method: 'GET'
   }
   rp(options)
-    .then(function (data) {
-      _data = data;
+    .then(function (_data) {
+      data = _data;
     })
     .catch(function (err) {
       console.log('REST API Error', err);
     });
-  return _data
+  return data
 }
 
 const apiItem = function (_qs) {
