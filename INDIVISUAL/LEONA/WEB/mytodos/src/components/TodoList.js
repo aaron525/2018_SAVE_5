@@ -3,21 +3,15 @@ import PropTypes from 'prop-types'
 import Todo from './Todo'
 
 const TodoList = ({ todos, onTodoClick }) => (
-  <div className="container">
-    <div className="row">
-      <div className="col-xl">
-        <ul className="list-group list-group-flush">
-          {todos.map(todo =>
-            <Todo
-              key={todo.id}
-              {...todo}
-              onClick={() => onTodoClick(todo.id)}
-            />
-          )}
-        </ul>
-      </div>
-    </div>
-  </div>
+  <ul className="list-group list-group-flush">
+    {todos.map(todo =>
+      <Todo
+        key={todo.id}
+        {...todo}
+        onClick={() => onTodoClick(todo.id)}
+      />
+    )}
+  </ul>
 )
 
 TodoList.propTypes = {

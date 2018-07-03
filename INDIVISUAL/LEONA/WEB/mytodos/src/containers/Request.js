@@ -13,12 +13,6 @@ const request = (type, filter) => {
   }
 }
 
-const mapStateToProps = function(state){
-  return {
-    type: request(state.type, state.visibilityFilter)  
-  }
-}
-
 const mapStateToProps = (state) => ({
   type: request(state.type, state.visibilityFilter)
 })

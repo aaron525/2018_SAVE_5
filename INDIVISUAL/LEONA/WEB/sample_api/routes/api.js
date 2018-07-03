@@ -6,11 +6,11 @@ const dataFile = "./data/data.json";
 const defaultChar = "utf8";
 const results = {
   "code" : {
-    "success": "100",
+    "success": "200",
     "error": "1"
   },
   "message" : {
-    "success": "success",
+    "success": "success request",
     "error": "id error!!"
   }
 };
@@ -27,12 +27,21 @@ const getList = function(req, res) {
 
 const postItem = function(req, res) {
   fs.readFile(dataFile, defaultChar, function(err, data) {
-    var oldTodos = (data === "") ? {} : JSON.parse(data);
     var body = req.body.body;
+    var oldTodos = data === "" ? {} : JSON.parse(data);
+    var tempId = body.id === "" ? 0 : body.id;
+
+    const getQs = function(_id){
+      return JSON.stringify(
+        oldTodos[String(_id)] = {
+          "completed": body.completed,
+          "text": body.text
+        }
+      )
+    }
 
     if (body.id === "") {
       // add item
-      var tempId = 0;
       if (Object.keys(oldTodos).length > 0) {
         Object.keys(oldTodos).forEach(function(k) {
           if (Number(k) >= tempId) {
@@ -40,29 +49,20 @@ const postItem = function(req, res) {
           }
         });
       }
-
-      oldTodos[String(tempId)] = {
-        "completed": body.completed,
-        "text": body.text
-      };
     } else {
       // modify item
       if (!oldTodos[String(body.id)]) {
         return res.send(getResultCode('error'));
       }
-
-      oldTodos[String(body.id)] = {
-        "completed": body.completed,
-        "text": body.text
-      };
     }
 
-    fs.writeFile(dataFile, JSON.stringify(oldTodos), defaultChar, function(err) {
+    fs.writeFile(dataFile, getQs(tempId), defaultChar, function(err) {
       if (err) throw err;
       console.log("save complete!");
 
       return res.send(getResultCode('success'));
     });
+    // writeFile(getQs(tempId));
   });
 };
 

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
-    return <span className="btn btn-block btn-lg btn-secondary">{children}</span>
+    return <span className="btn btn-block btn-sm btn-secondary">{children}</span>
   }
 
   return (
     // eslint-disable-next-line
     <button type="button"
-       className="btn btn-block btn-lg btn-outline-secondary"
+       className="btn btn-block btn-sm btn-outline-secondary"
        onClick={e => {
          e.preventDefault()
          onClick()

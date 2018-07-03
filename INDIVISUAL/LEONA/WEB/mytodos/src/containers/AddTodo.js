@@ -35,7 +35,7 @@ let AddTodo = ({ dispatch }) => {
       input.value = ''
     }}>
       <div className="row">
-        <div className="input-group input-group-lg">
+        <div className="input-group">
           <input ref={node => {
             input = node
           }}
